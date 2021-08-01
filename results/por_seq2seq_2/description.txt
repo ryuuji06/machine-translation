@@ -1,0 +1,17 @@
+
+-----------------------------------------
+Model Configuration
+-----------------------------------------
+
+Translation to portuguese. Seq2seq model without Additive attention.
+
+Number of training samples: 136192
+Number of validation samples: 34113
+
+Vocabulary size (english)    : 10000
+Vocabulary size (translation): 10000
+Batch size: 1024
+
+Embedding dimension: 100
+Number of units in each layer: 512
+

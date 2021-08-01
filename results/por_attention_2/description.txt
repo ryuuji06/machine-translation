@@ -1,0 +1,19 @@
+
+-----------------------------------------
+Model Configuration
+-----------------------------------------
+
+Translation to portuguese. Seq2seq model with Additive attention.
+
+~315s per epoch
+
+Number of training samples: 136192
+Number of validation samples: 34113
+
+Vocabulary size (english)    : 10000
+Vocabulary size (translation): 10000
+Batch size: 256
+
+Embedding dimension: 100
+Number of units in each layer: 512
+
