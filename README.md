@@ -12,6 +12,12 @@ Dataset we use. Pre-trained embedding: GloVe 6B, that learns the vector represen
 
 Describe more the model.
 
+## About the model
+
+## Sample result
+
+<img src="https://github.com/ryuuji06/machine-translation/blob/main/images/ex_hist.png" width="400">
+
 
 ## References
 
