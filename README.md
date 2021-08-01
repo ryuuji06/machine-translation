@@ -4,22 +4,18 @@ In this repository, I implement an automatic translation system from English to 
 
 The **machine translation** task requires the computer to process an input sentence, in one language, and return as output the corresponding translation into some other language. For a long time there was much effort in solving this in a deterministic way, that is, by understanding the linguistics and grammatical rules of the languages and by formulating a representation for the meanings contained in a sentence. However, this require a large effort on formulating a complex language model.
 
-Since [1,2],
+[1-3] started a new trend on solving this task with recurrent neural networks (RNN), approach that has become known as **neural machine translation**. Note that using a simple RNN to machine translation is not a trivial task, because a simple RNN outputs only a scalar or a sequence of same length as the input, which is not usually the case in text translation. In their works, they use networks composed of an encoder and a decoder. The encoder RNN processes the input sequence producing an intermediate fixed-length vector (known as context vector). The decoder RNN is initialized with the context vector.
 
 
-Literature: how it was traditionally done? How is it done now?
 
-RNN, sequence-to-sequence models, then sequence-to-sequence with attention, and more recently it
-is performed with transformers
-
-How target label is considered?
-
-
-Dataset we use. Pre-trained embedding: GloVe 6B, that learns the vector representation of words unsupervisedly.
-
-Describe more the model.
 
 ## About the model
+
+ Pre-trained embedding: GloVe 6B, that learns the vector representation of words unsupervisedly.
+
+Dataset we use.
+
+Describe more the model.
 
 ## Sample result
 
@@ -28,15 +24,19 @@ Describe more the model.
 
 ## References
 
-[1] I. Sutskever, O. Vinyals and Q. Le. "Sequence to sequence learning with neural networks". In Advances in Neural Information Processing Systems (NIPS 2014).
+[1] N. Kalchbrenner and P. Blunsom. (2013). "Recurrent continuous translation models". In Proceedings of the ACL Conference on Empirical Methods in Natural Language Processing (EMNLP), p. 1700–1709, 2013.
 
-[2] K. Cho, B. van Merrienboer, D. Bahdanau and Y. Bengio. "On the properties of neural machine translation: Encoder–Decoder approaches". In Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation, 2014.
+[2] I. Sutskever, O. Vinyals and Q. Le. "Sequence to sequence learning with neural networks". In Advances in Neural Information Processing Systems (NIPS 2014).
 
-[3] D. Bahdanau, K. Cho and Y. Bengio. "Neural machine translation by jointly learning to align and translate". In International Conference on Learning Representations (ICLR), 2015.
+[3] K. Cho, B. van Merrienboer, D. Bahdanau and Y. Bengio. "On the properties of neural machine translation: Encoder–Decoder approaches". In Eighth Workshop on Syntax, Semantics and Structure in Statistical Translation, 2014.
 
-[4] M. Luong, H. Pham, C.D. Manning. "Effective approaches to attention-based neural machine translation". Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP), p. 1412–1421, 2015.
+[4] D. Bahdanau, K. Cho and Y. Bengio. "Neural machine translation by jointly learning to align and translate". In International Conference on Learning Representations (ICLR), 2015.
 
-[5] https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html
+[5] M. Luong, H. Pham, C.D. Manning. "Effective approaches to attention-based neural machine translation". Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP), p. 1412–1421, 2015.
+
+[6] Vaswani Transformer
+
+[6] https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html
 
 [x] Translation pairs dataset. http://www.manythings.org/anki/
 
