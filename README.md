@@ -12,64 +12,63 @@ Posteriorly, [6] proposed the **transformer**, a network based solely on the att
 
 ## About this repository
 
-In this repository, I implement an encoder-decoder RNN with the Bahdanau attention mechanism. The code implementations were based on [8,9]. After the words are tokenized, with vocabulary of 10,000 words (for English and for Portuguese), the input sequence is input to a 100-dim word embedding.
+In this repository, I implement an encoder-decoder RNN with the Bahdanau attention mechanism. The code implementations were based on [8,9]. After the words are tokenized, with vocabulary of 10,000 words (for English and for Portuguese), they are input to a 100-dim word embedding (in both encoder and decoder).
+ - Encoder: embedding (10000, 100), GRU layer 512 units.
+ - Decoder: 
+   - processing target tokens: embedding (10000, 100), GRU layer 512 units;
+   - processing encoder output and hidden GRU output: attention mechanism 512 units;
+   - processing GRU output and attention output: dense layer 512 units, tanh activation, and a final dense layer (10000 units).
 
-Encoder: embedding, GRU layer 512 units.
+The word embedding of the encoder (for English) was pre-trained with GloVe 6B [10]. The dataset used for training was obtained from [11].
 
-Decoder:
-
- Pre-trained embedding: GloVe 6B, that learns the vector representation of words unsupervisedly.
-
-Dataset we use.
 
 ## Sample result
 
+The figure below shows the process of the loss and the validation loss during training.
+
 <img src="https://github.com/ryuuji06/machine-translation/blob/main/images/ex_hist.png" width="400">
 
-`I'm coming home.`
+In the following, I show some outputs of the network for some arbitrary input sentences. As prediction is done with beam search, the predicted sequence is not deterministic. Note that sentences from 1 to 6 have pretty much reliable translations. Sentences from 7 to 10, which are more uncommon and might be more distinct from the training examples, do not produced good translations, although the semantics of the original sentence is somewhat kept.
+
+(1) `I'm coming home.` ==>
 `estou chegando em casa .`
 `estou vindo para casa .`
 
-`I don't know where I am.`
+(2) `I don't know where I am.` ==>
 `eu nao sei onde estou .`
 `eu nao sei onde estou .`
 
-`I love you so much.`
+(3) `I love you so much.` ==>
 `amo muito voce .`
 `amo bastante .`
 
-`Did you say anything?`
+(4) `Did you say anything?` ==>
 `voce disse alguma coisa ?`
 `voce disse algo ?`
 
-`How dare you do that?`
+(5) `How dare you do that?` ==>
 `como voce ousa fazer isso ?`
 `como ousa fazer isso ?`
 
-`Has she received a recommendation letter from the professor?`
-`ela recebeu uma carta de asia do professor ?`
-`ela recebeu uma carta de idade ?`
-
-`I am not interested.`
+(6) `I am not interested.` ==>
 `eu nao estou interessado .`
 `nao estou interessado .`
 
-`The sun did not rise today.`
+(7) `Has she received a recommendation letter from the professor?` ==>
+`ela recebeu uma carta de asia do professor ?`
+`ela recebeu uma carta de idade ?`
+
+(8) `The sun did not rise today.` ==>
 `o sol nao ficou de quinze .`
 `o sol nao brilhava hoje .`
 
-`I hurt my left leg when I was younger.`
+(9) `I hurt my left leg when I was younger.` ==>
 `eu machuquei a perna do meu quando eu estava mais jovem .`
 `eu entendi meu perna de vez em quando eu estava jovem .`
 
-`This is none of your business.`
-`isto nao e de suas unica .`
-`isto nao e da sua conta .`
-
-
-  They have failed to overcome the economical crisis.
-  eles nao tem estado de olho para a crise .
-  eles nao sao necessarios a media .
+(10) `They have failed to overcome the economical crisis.` ==>
+`eles nao tem estado de olho para a crise .`
+`eles nao sao necessarios a media .`
 
   
 ## References
@@ -92,8 +91,9 @@ Dataset we use.
 
 [9] https://www.tensorflow.org/text/tutorials/nmt_with_attention
 
+[10] Pre-trained embeddings source. https://nlp.stanford.edu/projects/glove/
 
-[x] Translation pairs dataset. http://www.manythings.org/anki/
+[11] Translation pairs dataset. http://www.manythings.org/anki/
 
-[x] Pre-trained embeddings source. https://nlp.stanford.edu/projects/glove/
+
 
