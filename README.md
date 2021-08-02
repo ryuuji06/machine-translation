@@ -1,6 +1,6 @@
 # Machine Translation with Bahdanau Attention Model
 
-In this repository, I implement an automatic translation system from English to another language. It is currently trained to translate to portuguese, but it admits the translation to any language, provided available training data.
+In this repository, I implement an automatic translation system from English to another language. It is currently trained to translate to Portuguese, but it admits the translation to any language, provided available training data.
 
 The **machine translation** task requires the computer to process an input sentence, in one language, and return as output the corresponding translation into some other language. For a long time there was much effort in solving this in a deterministic way, that is, by understanding the linguistics and grammatical rules of the languages and by formulating a representation for the meanings contained in a sentence. However, this require a large effort on formulating a complex language model.
 
@@ -10,19 +10,68 @@ This **encoder-decoder** model (also called sequence-to-sequence model) has prob
 
 Posteriorly, [6] proposed the **transformer**, a network based solely on the attention mechanism that surprisingly dispenses any convolutional or recurrent structures. This architecture achieved the state-of-the-art performance on neural machine translation. In [7] you can find a more quick and informal yet very good explanation about the attention mechanisms.
 
-## About the model
+## About this repository
+
+In this repository, I implement an encoder-decoder RNN with the Bahdanau attention mechanism. The code implementations were based on [8,9]. After the words are tokenized, with vocabulary of 10,000 words (for English and for Portuguese), the input sequence is input to a 100-dim word embedding.
+
+Encoder: embedding, GRU layer 512 units.
+
+Decoder:
 
  Pre-trained embedding: GloVe 6B, that learns the vector representation of words unsupervisedly.
 
 Dataset we use.
 
-Describe more the model.
-
 ## Sample result
 
 <img src="https://github.com/ryuuji06/machine-translation/blob/main/images/ex_hist.png" width="400">
 
+`I'm coming home.`
+`estou chegando em casa .`
+`estou vindo para casa .`
 
+`I don't know where I am.`
+`eu nao sei onde estou .`
+`eu nao sei onde estou .`
+
+`I love you so much.`
+`amo muito voce .`
+`amo bastante .`
+
+`Did you say anything?`
+`voce disse alguma coisa ?`
+`voce disse algo ?`
+
+`How dare you do that?`
+`como voce ousa fazer isso ?`
+`como ousa fazer isso ?`
+
+`Has she received a recommendation letter from the professor?`
+`ela recebeu uma carta de asia do professor ?`
+`ela recebeu uma carta de idade ?`
+
+`I am not interested.`
+`eu nao estou interessado .`
+`nao estou interessado .`
+
+`The sun did not rise today.`
+`o sol nao ficou de quinze .`
+`o sol nao brilhava hoje .`
+
+`I hurt my left leg when I was younger.`
+`eu machuquei a perna do meu quando eu estava mais jovem .`
+`eu entendi meu perna de vez em quando eu estava jovem .`
+
+`This is none of your business.`
+`isto nao e de suas unica .`
+`isto nao e da sua conta .`
+
+
+  They have failed to overcome the economical crisis.
+  eles nao tem estado de olho para a crise .
+  eles nao sao necessarios a media .
+
+  
 ## References
 
 [1] N. Kalchbrenner and P. Blunsom. (2013). "Recurrent continuous translation models". In Proceedings of the ACL Conference on Empirical Methods in Natural Language Processing (EMNLP), p. 1700–1709, 2013.
@@ -39,10 +88,12 @@ Describe more the model.
 
 [7] https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html
 
+[8] https://keras.io/examples/nlp/lstm_seq2seq/
+
+[9] https://www.tensorflow.org/text/tutorials/nmt_with_attention
+
+
 [x] Translation pairs dataset. http://www.manythings.org/anki/
 
 [x] Pre-trained embeddings source. https://nlp.stanford.edu/projects/glove/
 
-[] https://keras.io/examples/nlp/lstm_seq2seq/
-
-[] https://www.tensorflow.org/text/tutorials/nmt_with_attention
