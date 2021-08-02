@@ -24,7 +24,7 @@ The word embedding of the encoder (for English) was pre-trained with GloVe 6B [1
 
 ## Sample result
 
-The figure below shows the process of the loss and the validation loss during training.
+The figure below shows the process of the loss and the validation loss during training. I stopped training when the validation loss was still decreasing (lack of time), so I could probably improve the model performance with this same configuration.
 
 <img src="https://github.com/ryuuji06/machine-translation/blob/main/images/ex_hist.png" width="400">
 
