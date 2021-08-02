@@ -6,9 +6,9 @@ The **machine translation** task requires the computer to process an input sente
 
 [1-3] started a new trend on solving this task with recurrent neural networks (RNN), approach that has become known as **neural machine translation**. Note that using a simple RNN to machine translation is not a trivial task, because a simple RNN outputs only a scalar or a sequence of same length as the input, which is not usually the case in text translation. In their works, they use networks composed of an encoder and a decoder. The encoder RNN processes the input sequence producing an intermediate fixed-length vector (known as context vector). The decoder RNN is initialized with the context vector, and outputs the translated sequence by word by word recursively, by feeding the output of each instant back to the decoder input.
 
-This encoder-decoder model (also called sequence-to-sequence model) has problem with long sequences: as the only information the decoder has about the input sequence is its initialization, the decoder tends to drift away from the encoder information as it iterates the output. To remedy this problem, the attention mechanism was proposed [4,5]. 
+This encoder-decoder model (also called sequence-to-sequence model) has problem with long sequences: as the only information the decoder has about the input sequence is its initialization, the decoder tends to drift away from the encoder information as it iterates the output. To remedy this problem, [4,5] proposed some modifications of the encoder-decoder, inserting an attention mechanism. Instead of outputing only a single vector, in their approach the encoder outputs an entire sequence (context sequence). Then, an attention mechanism (a kind of auxiliary fully connected network) weights the context sequence so that the decoder can focus on different parts of the encoder output as it produces recursively its output. These approaches attained better results in the machine translation task.
 
-
+Posterior
 
 ## About the model
 
@@ -35,7 +35,9 @@ Describe more the model.
 
 [5] M. Luong, H. Pham, C.D. Manning. "Effective approaches to attention-based neural machine translation". Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP), p. 1412–1421, 2015.
 
-[6] Vaswani Transformer
+[6] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A.N. Gomez, L. Kaiser, I. Polosukhin. "Attention is all you need". Proceedings of the 31st International Conference on Neural Information Processing Systems (NIPS'17), p. 6000–6010, 2017.
+
+
 
 [6] https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html
 
